@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container-wrapper">
+        <div class="turns" id="turn">
+            Player x's turn
+        </div>
+        <div class="board">
+            <div class="column" id="column1">
+                <div class="box" id="top-left"></div>
+                <div class="box" id="middle-left"></div>
+                <div class="box" id="bottom-left"></div>
+            </div>
+
+            <div class="vertical-line"></div>
+
+            <div class="column" id="column2">
+                <div class="box" id="top-middle"></div>
+                <div class="box" id="middle-middle"></div>
+                <div class="box" id="bottom-middle"></div>
+            </div>
+
+            <div class="vertical-line"></div>
+
+            <div class="column" id="column3">
+                <div class="box" id="top-right"></div>
+                <div class="box" id="middle-right"></div>
+                <div class="box" id="bottom-right"></div>
+            </div>
+        </div>
+
+        <div class="line-wrapper">
+            <div class="space-between"></div>
+            <div class="horizontal-line"></div>
+            <div class="space-between"></div>
+            <div class="horizontal-line"></div>
+            <div class="space-between"></div>
+        </div>
+
+        <div class="start-prompt-wrapper" id="start-wrapper">
+            <div class="sky-background">
+
+            </div>
+            <div class="sun">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/028/651/906/small/pixel-art-sun-icon-png.png" alt="">
+            </div>
+
+            <img src="image-removebg-preview (1).png" alt="" class="parachute">
+            <div class="start-card">
+                <div class="title">
+                    Tic Tac Toe
+                </div>
+
+                <div class="buttons" id="buttons">
+                    Choose Gamemode:
+                    <button class="pvp" id="pvp">Player vs Player</button>
+                    <button class="pvc" id="pvc">Player vs Computer</button>
+                </div>
+            </div>
+
+            <img src="vector-pixel-art-smoke-cloud-260nw-1405261049-removebg-preview.png" alt="" class="smoke" id="smoke">
+            <img src="image-removebg-preview.png" alt="" class="plane">
+        </div>
+
+    <div class="end-prompt-wrapper" id="end">
+        <div class="sky-background">
+        </div>
+
+
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/028/651/906/small/pixel-art-sun-icon-png.png" class="sun">
+
+        <img src="image-removebg-preview (1).png" alt="" class="parachute">
+
+        <div class="end-card">
+            <div class="result" id="result">
+                
+            </div>
+
+            <button class="play-again" id="play-again">Play again?</button>
+        </div>
+
+        <img src="vector-pixel-art-smoke-cloud-260nw-1405261049-removebg-preview.png" alt="" class="smoke show" id="smoke">
+        <img src="image-removebg-preview.png" alt="" class="plane">
+    </div>
+
+
+</body>
+
+<script src="script.js"></script>
+</html>
