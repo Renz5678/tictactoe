@@ -7,8 +7,11 @@ const endPrompt = document.getElementById("end");
 const result = document.getElementById("result");
 const playAgain = document.getElementById("play-again");
 let winner = "";
+let isVsComputer = false;
+
 pvc.addEventListener("click", () => {
-    alert("not yet supported");
+    isVsComputer = true;
+    turn.innerHTML = "Player's turn";
 });
 
 const column1 = document.getElementById("column1");
@@ -18,12 +21,8 @@ const column3 = document.getElementById("column3");
 let numberOfMoves = 0;
 
 buttons.addEventListener("click", (e) => {
-    if (e.target.id === "pvp") {
-        startWrapper.classList.add("hide");
-        smoke.classList.add("show");
-    } else {
-        return;
-    }
+    startWrapper.classList.add("hide");
+    smoke.classList.add("show");
 });
 
 const boxes = document.querySelectorAll(".box")
@@ -35,6 +34,14 @@ boxes.forEach(box => {
         numberOfMoves++;
 
         e.target.innerHTML = currentPlayer;
+
+        if (isVsComputer) {
+            turn.innerHTML = "Computer's turn...";
+            setTimeout(() => {
+                computerTurn();
+                turn.innerHTML = `Player's turn`;
+            }, 1500); // 0.5s delay
+        }
 
         if (checkWinningCondition() !== null) {
             winner = checkWinningCondition();
@@ -48,16 +55,56 @@ boxes.forEach(box => {
             return;
         }
 
-        turn.innerHTML = `Player ${checkWhoseTurn()}'s turn`;
+        if (!isVsComputer) turn.innerHTML = `Player ${checkWhoseTurn()}'s turn...`;
     } else {
         alert("Box already filled!");
     }
   });
 });
 
+function computerTurn() {
+    const columns = [column1, column2, column3];
+
+    const board = [
+    [columns[0].children[0], columns[1].children[0], columns[2].children[0]],
+    [columns[0].children[1], columns[1].children[1], columns[2].children[1]],
+    [columns[0].children[2], columns[1].children[2], columns[2].children[2]],
+    ];
+
+    let x = Math.floor(Math.random() * 3);
+    let y = Math.floor(Math.random() * 3);
+
+    if (board[x][y].textContent.trim() === "") {
+        board[x][y].innerHTML = 'o';
+        numberOfMoves++
+
+        if (checkWinningCondition() !== null) {
+            winner = checkWinningCondition();
+            showEndScreen();
+            return;
+        }
+
+        if (numberOfMoves >= 9 && checkWinningCondition() === null) {
+            winner = "draw";
+            showEndScreen();
+            return;
+        }
+        return;
+    } else {
+        computerTurn();
+    }
+}
+
 function showEndScreen() {
     endPrompt.classList.add("visible");
     smoke.classList.remove("show");
+    if (isVsComputer) {
+        if (winner === "o") {
+            result.innerHTML = "Computer Wins!";
+            return;
+        }
+    }
+
     if (winner === "draw") {
         result.innerHTML = "It's a Draw!";
     } else {

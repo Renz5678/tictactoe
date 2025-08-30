@@ -470,3 +470,29 @@ body {
         font-size: 4rem;
     }
 }
+
+@media (max-width: 400px) {
+    .title {
+        font-size: 4rem;
+        text-shadow: none;
+        color: #000;
+        padding-top: 5rem;
+    }
+
+    .buttons {
+        margin-top: 3rem;
+    }
+
+    .turns {
+        font-size: 3.2rem;
+        margin-top: 2rem;
+    }
+
+    .board {
+        width: 96%;
+    }
+
+    .horizontal-line {
+        width: 100%;
+    }
+}
