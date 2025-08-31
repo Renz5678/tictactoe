@@ -469,6 +469,16 @@ body {
     .turns {
         font-size: 4rem;
     }
+
+    .box {
+        font-size: 8rem;
+    }
+
+    .result {
+        font-size: 4rem;
+        text-shadow: none;
+        color: #000;
+    }
 }
 
 @media (max-width: 400px) {
@@ -494,5 +504,16 @@ body {
 
     .horizontal-line {
         width: 100%;
+    }
+}
+
+@media (max-width: 380px) {
+    .title {
+        font-size: 3.5rem;
+    }
+
+    .turns {
+        font-size: 2.5rem;
+        text-shadow: none;
     }
 }
