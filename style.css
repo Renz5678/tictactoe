@@ -365,6 +365,11 @@ body {
     display: block;
 }
 
+.disabled {
+  pointer-events: none;
+  opacity: 0.7; /* optional visual effect */
+}
+
 @keyframes bounce {
     0%, 100% {
         transform: translateY(0);

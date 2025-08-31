@@ -6,6 +6,7 @@ const pvc = document.getElementById("pvc");
 const endPrompt = document.getElementById("end");
 const result = document.getElementById("result");
 const playAgain = document.getElementById("play-again");
+const tictactoeBoard = document.getElementById("board");
 let winner = "";
 let isVsComputer = false;
 
@@ -36,10 +37,13 @@ boxes.forEach(box => {
         e.target.innerHTML = currentPlayer;
 
         if (isVsComputer) {
+            tictactoeBoard.classList.add("disabled");
             turn.innerHTML = "Computer's turn...";
+
             setTimeout(() => {
                 computerTurn();
                 turn.innerHTML = `Player's turn`;
+                tictactoeBoard.classList.remove("disabled");
             }, 1500); // 0.5s delay
         }
 
